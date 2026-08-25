@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AdishPay | From C++ ATM Simulator to Full-Stack Web Banking</title>
+
+    <meta name="description"
+        content="AdishPay is a full-stack digital banking simulation developed by Adish Jagan AV. The project evolved from a C++ ATM simulator into a PHP and MySQL web application featuring authentication, transactions, balance management, and dashboard workflows.">
+
+    <meta name="author" content="Adish Jagan AV">
+
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title"
+        content="AdishPay | From C++ ATM Simulator to Full-Stack Web Banking">
+
+    <meta property="og:description"
+        content="Explore the evolution of AdishPay from a C++ ATM simulator into a full-stack PHP and MySQL banking simulation.">
+
+    <meta property="og:type" content="website">
+
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top right, #172554 0%, transparent 35%),
+                linear-gradient(135deg, #020617, #0f172a, #111827);
+
+            color: #ffffff;
+            font-family: "Inter", sans-serif;
+        }
+
+
+        .container {
+            width: min(1100px, 92%);
+            margin: auto;
+        }
+
+
+        /* NAVBAR */
+
+        header {
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .logo {
+            font-family: "Poppins", sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+
+        .logo .adish {
+            color: #ffffff;
+        }
+
+
+        .logo .pay {
+            color: #38bdf8;
+        }
+
+
+        .github {
+            text-decoration: none;
+            color: #ffffff;
+            border: 1px solid #334155;
+            padding: 10px 18px;
+            border-radius: 10px;
+            transition: 0.3s ease;
+        }
+
+
+        .github:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 110px 0 90px;
+        }
+
+
+        .badge {
+            display: inline-block;
+            padding: 8px 17px;
+            border-radius: 30px;
+
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+
+            color: #7dd3fc;
+
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+
+        .hero h1 {
+            font-family: "Poppins", sans-serif;
+
+            font-size: clamp(42px, 7vw, 76px);
+
+            line-height: 1.1;
+
+            margin-bottom: 28px;
+        }
+
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+
+        .hero p {
+            max-width: 800px;
+
+            margin: auto;
+
+            color: #cbd5e1;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+        }
+
+
+        .buttons {
+            margin-top: 38px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 26px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            transition: 0.3s ease;
+        }
+
+
+        .primary {
+            background: #0284c7;
+
+            color: white;
+        }
+
+
+        .primary:hover {
+            background: #0369a1;
+
+            transform: translateY(-2px);
+        }
+
+
+        .secondary {
+            border: 1px solid #475569;
+
+            color: white;
+        }
+
+
+        .secondary:hover {
+            border-color: #38bdf8;
+
+            color: #38bdf8;
+        }
+
+
+      
+
+        .section {
+            padding: 80px 0;
+        }
+
+
+        .section h2 {
+            text-align: center;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 34px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .section-intro {
+            text-align: center;
+
+            color: #94a3b8;
+
+            margin-bottom: 45px;
+
+            line-height: 1.7;
+        }
+
+
+        .story {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: rgba(15, 23, 42, 0.8);
+
+            border: 1px solid #334155;
+
+            border-radius: 20px;
+
+            padding: 40px;
+
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .story-title {
+            text-align: center;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 28px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .story-title span {
+            color: #38bdf8;
+        }
+
+
+        .timeline {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+
+        .timeline-box {
+            padding: 28px;
+
+            border-radius: 15px;
+
+            background: #1e293b;
+
+            border: 1px solid #334155;
+        }
+
+
+        .timeline-box h3 {
+            font-family: "Poppins", sans-serif;
+
+            margin-bottom: 12px;
+        }
+
+
+        .timeline-box p {
+            color: #cbd5e1;
+
+            line-height: 1.8;
+        }
+
+
+        .arrow {
+            text-align: center;
+
+            font-size: 30px;
+
+            color: #38bdf8;
+
+            margin: 10px 0;
+        }
+
+
+    
+        .cards {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .card {
+            background: rgba(30, 41, 59, 0.75);
+
+            border: 1px solid #334155;
+
+            border-radius: 16px;
+
+            padding: 28px;
+
+            transition: 0.3s ease;
+        }
+
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            border-color: #38bdf8;
+        }
+
+
+        .card h3 {
+            font-family: "Poppins", sans-serif;
+
+            margin-bottom: 12px;
+        }
+
+
+        .card p {
+            color: #cbd5e1;
+
+            line-height: 1.7;
+        }
+
+
+       
+
+        .tech {
+            margin-top: 35px;
+
+            text-align: center;
+
+            color: #cbd5e1;
+
+            line-height: 2;
+        }
+
+
+        .tech span {
+            display: inline-block;
+
+            margin: 5px;
+
+            padding: 8px 14px;
+
+            border-radius: 8px;
+
+            background: #1e293b;
+
+            border: 1px solid #334155;
+        }
+
+
+        .note {
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 28px;
+
+            border-radius: 16px;
+
+            background: rgba(14, 116, 144, 0.08);
+
+            border: 1px solid rgba(56, 189, 248, 0.25);
+
+            color: #cbd5e1;
+
+            text-align: center;
+
+            line-height: 1.8;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #1e293b;
+
+            padding: 30px 0;
+
+            text-align: center;
+
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .hero {
+                padding: 75px 0 60px;
+            }
+
+
+            .hero p {
+                font-size: 16px;
+            }
+
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+
+
+            .story {
+                padding: 25px;
+            }
+
+
+            .section {
+                padding: 55px 0;
+            }
+
+
+            .github {
+                padding: 8px 12px;
+
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+    <header>
+
+        <div class="container navbar">
+
+            <div class="logo">
+                <span class="adish">Adish</span><span class="pay">Pay</span>
+            </div>
+
+
+            <a
+                class="github"
+                href="https://github.com/adish-1"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                GitHub
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="badge">
+                    Full-Stack Development Project
+                </div>
+
+
+                <h1>
+
+                    From C++ ATM Simulator
+                    <br>
+
+                    to <span>AdishPay</span>
+
+                </h1>
+
+
+                <p>
+
+                    AdishPay is a full-stack digital banking and wallet
+                    simulation developed by Adish Jagan AV. What started
+                    as a C++ command-line ATM simulator evolved into a
+                    database-backed web application using PHP, MySQL,
+                    HTML, CSS, and JavaScript.
+
+                </p>
+
+
+                <div class="buttons">
+
+                    <a
+                        class="btn primary"
+                        href="login/">
+                        Open AdishPay
+
+                    </a>
+
+
+                    <a
+                        class="btn secondary"
+                        href="https://github.com/adish-1"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        View GitHub
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section">
+
+            <div class="container">
+
+                <h2>
+                    The Evolution of AdishPay
+                </h2>
+
+
+                <p class="section-intro">
+
+                    A project that grew from a simple command-line
+                    experiment into a complete web application.
+
+                </p>
+
+
+                <div class="story">
+
+                    <div class="story-title">
+
+                        <span>C++</span> → Web
+
+                    </div>
+
+
+                    <div class="timeline">
+
+
+                        <div class="timeline-box">
+
+                            <h3>
+                                01 · C++ ATM Simulator
+                            </h3>
+
+                            <p>
+
+                                The original concept started as a
+                                command-line ATM simulator built while
+                                exploring programming fundamentals,
+                                user input, account operations, and
+                                transaction logic.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="timeline-box">
+
+                            <h3>
+                                02 · AdishPay Web Application
+                            </h3>
+
+                            <p>
+
+                                The concept was later expanded into
+                                a full-stack web application with
+                                authentication, sessions, MySQL
+                                database integration, balance
+                                management, and transaction workflows.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="arrow">
+                        ↓
+                    </div>
+
+
+                    <p style="text-align:center; color:#94a3b8;">
+
+                        From understanding transaction logic
+                        to building the complete application around it.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FEATURES -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <h2>
+                    Core Features
+                </h2>
+
+
+                <p class="section-intro">
+
+                    Practical full-stack concepts implemented inside
+                    the AdishPay application.
+                </p>
+                <div class="cards">
+                    <div class="card">
+                        <h3>
+                            User Authentication
+                        </h3>
+                        <p>
+                            Registration, login, password verification,
+                            session management, and authenticated
+                            dashboard access.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>
+                            Money Transfer
+                        </h3>
+                        <p>
+                            Simulated peer-to-peer transfers with
+                            receiver validation, balance updates,
+                            transaction PIN verification, and
+                            transaction feedback.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>
+                            Transaction Ledger
+                        </h3>
+                        <p>
+                            Users can view recent transactions and
+                            their transaction history through the
+                            dashboard.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>
+                            Database Integration
+                        </h3>
+                        <p>
+                            MySQL provides persistent application
+                            data while PHP handles database
+                            communication and application logic.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>
+                            Security Practices
+                        </h3>
+                        <p>
+                            Password hashing, session management,
+                            prepared SQL statements, and server-side
+                            validation are used throughout the project.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>
+                            Responsive Interface
+                        </h3>
+                        <p>
+                            A custom responsive interface designed
+                            to provide a consistent experience across
+                            desktop and mobile screens.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <h2>
+                    Technology Stack
+                </h2>
+                <div class="tech">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>PHP</span>
+                    <span>MySQL</span>
+                    <span>Font Awesome</span>
+                    <span>Responsive Design</span>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="note">
+                    <strong>
+                        Educational Project
+                    </strong>
+                    <br>
+                    AdishPay is a banking and wallet simulation created
+                    for learning and demonstrating full-stack web
+                    development concepts. It is not a real financial
+                    service and does not process real-world payments.
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            © 2026 AdishPay · Developed by Adish Jagan AV
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,165 @@
+
+.major {
+    display: flex;
+    flex-direction:row;
+    width: 100%;
+}
+.content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.profile-container {
+    width: 90%;
+    max-width: 900px;
+}
+.profile-container h1 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    color: #004cff;
+    margin-bottom: 25px;
+}
+.profile-card {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+    border-left: 3px solid #0066ff;
+}
+.profile-top {
+    text-align: center;
+    padding: 35px 20px 25px;
+}
+.profile-icon {
+    font-size: 70px;
+    color: #0066ff;
+    margin-bottom: 10px;
+}
+.profile-top h2 {
+    margin: 5px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    color: #00145c;
+}
+.profile-top p {
+    margin: 5px 0 15px;
+    font-family: 'Inter', sans-serif;
+    color: #666;
+    font-size: 17px;
+}
+.status {
+    display: inline-block;
+    padding: 7px 15px;
+    border-radius: 20px;
+    background: #e9f9ee;
+    color: #159447;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+.balance-card {
+    margin: 0 30px 30px;
+    padding: 25px;
+    border-radius: 15px;
+    background: linear-gradient(135deg,#924ccf,#49038a);
+    color: white;
+    text-align: center;
+}
+.balance-card p {
+    margin: 0 0 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+.balance-card h2 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 38px;
+}
+.account-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: #ddd;
+    border-top: 1px solid #ddd;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 25px;
+}
+.info-item i {
+    font-size: 24px;
+    color: #0066ff;
+    width: 30px;
+    text-align: center;
+}
+.info-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.info-item span {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #777;
+}
+.info-item strong {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    color: #00145c;
+    overflow-wrap: anywhere;
+}
+@media (max-width: 800px) {
+    .content {
+        padding: 20px;
+    }
+    .profile-container {
+        width: 95%;
+    }
+    .profile-container > h1 {
+        font-size: 34px;
+    }
+    .account-info {
+        grid-template-columns: 1fr;
+    }
+    .balance-card {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+@media (max-width: 500px) {
+    .content {
+        padding: 10px;
+    }
+    .profile-container  h1 {
+        font-size: 28px;
+    }
+    .profile-card {
+        border-left-width: 2px;
+    }
+    .profile-top {
+        padding: 25px 15px 20px;
+    }
+    .profile-icon {
+        font-size: 55px;
+    }
+    .profile-top h2 {
+        font-size: 24px;
+    }
+    .balance-card {
+        padding: 20px;
+    }
+    .balance-card h2 {
+        font-size: 30px;
+    }
+    .info-item {
+        padding: 20px;
+    }
+}

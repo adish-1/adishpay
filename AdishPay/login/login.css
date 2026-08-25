@@ -1,0 +1,189 @@
+body{
+    background:url("../images/loginbg.png");
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+}
+.adish{
+    color:black;
+    font-size:42px;
+}
+.pay{
+    color:#2457ef;
+    font-size:48px;
+}
+h3{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input{
+  transition: all 0.3s ease;
+  width:100%;
+  box-sizing: border-box;
+}
+input[type="text"], input[type="password"]{
+    margin-top:20px;
+    padding: 20px;
+    outline: none;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #a19d9db0;
+    border-radius: 5px;
+    font-family: "Poppins",sans-serif;
+    font-weight: 600;
+    font-size:18px;
+    color:#051136;
+}
+input[type="text"]:focus, input[type="password"]:focus{
+ transform:translateY(-3px);
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    border:1.5px solid #006eff;
+}
+input:valid{
+    border: 1px solid #04a221c9;
+}
+.input-icon
+{
+    margin-top: 35px;
+    color:#0757cfd8;
+}
+.login-container{
+    width: 100%;
+    max-width: 700px;
+  padding-bottom:40px;
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    margin-right:10%;
+    animation: popUp 0.5s ease-in-out;
+}
+@keyframes popUp{
+    0%{
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.username-input, .password-input{
+   display:flex;
+   justify-content: space-between;
+   gap:12px;
+   width:85%;
+}
+.main-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   align-items: center;
+    margin-top: 8%;
+    gap:12%;
+}
+.secure-text{   
+    font-size:30px;
+    display:flex;
+    flex-direction: column;
+    gap:15px;
+    font-family: 'Poppins', sans-serif;
+    max-width: 420px;
+}
+.manage-span{
+    color:#051136;
+    font-weight:800;
+}
+.modern-span{
+    color:#2457ef;
+    font-weight: 900;
+}
+.login-p-text{
+    font-size: 27px;
+    font-family: 'Poppins', sans-serif;
+    color:navy;
+    font-weight: 700;
+}
+@media(max-width: 1000px){
+    .main-box{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .login-container{
+        width:90%;
+        margin:auto;
+    }
+    .secure-text{
+        padding-right: 0;
+        text-align: center;
+    }
+    body
+    {
+        background-size: 100% 100%;
+        background-attachment: fixed;
+    }
+    h1
+    {
+        font-size: 40px;
+    }
+}
+
+.submit-button button{
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #2457ef;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+.submit-button button:hover{
+    transform:translateY(-5px);
+    background-color: #033981;
+}
+h4
+{
+    font-size: 18px;
+    padding:20px;
+    font-family: 'inter', sans-serif;
+}
+h4 a{
+    text-decoration: none;
+    color: #2457ef;
+    cursor:pointer;
+    transition: color 0.3s ease;
+}
+h4 a:hover{
+ color:#033981;
+}
+h6
+{
+    text-align: center;
+    font-size: 15px;
+    padding:20px;
+    font-family: 'inter', sans-serif;
+    color:rgba(0, 0, 0, 0.457);
+}

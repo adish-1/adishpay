@@ -1,0 +1,30 @@
+<?php
+session_start();
+if(!isset($_SESSION['username']))
+   {
+      header("location:../../login/");
+      exit();
+   }
+   include("../../database/db.php");
+   $username=$_SESSION['username'];
+   $sql="select * from users where username=?";
+   $stmt=mysqli_prepare($conn,$sql);
+   if($stmt){
+      mysqli_stmt_bind_param($stmt,"s",$username);
+      mysqli_stmt_execute($stmt);
+      $result=mysqli_stmt_get_result($stmt);
+      $row=mysqli_fetch_assoc($result);
+      $user=$row['name'];
+      $email=$row['email'];
+      $phno=$row['phno'];
+      $accNumber=$row['acc_number'];
+      $balance=$row['balance'];
+      $status=$row['status'];
+      $time=$row['created_at'];
+      if($row['status']=="blocked"){
+         session_destroy();
+         header("location:../statusBlock/");
+         exit();
+      }
+   }
+   ?>

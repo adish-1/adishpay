@@ -1,0 +1,104 @@
+body{
+    background:url("../../images/loginbg.png");
+    background-position:center;
+    background-size:cover;
+    min-height:100vh;
+    margin:0;
+    animation:popUp 1s ease-in-out;
+    background-attachment:fixed;
+    min-width:fit-content;
+}
+@keyframes popUp{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+.header{
+    background-color:#fcfcfc;
+    box-shadow:0 0 10px grey;
+    width:100%;
+    min-width:100%;
+    padding-top:10px;
+    padding-bottom:10px;
+    justify-content:space-between;
+    display:flex;
+    box-sizing:border-box;
+}
+.adish-pay{
+    margin-left:20px;
+    font-size:30px;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    align-items:center;
+}
+.pay{
+    color:#075ae0;
+}
+.user{
+    margin-right:20px;
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+    align-items:center;
+    font-size:20px;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+}
+.user-icon{
+    color:#0a6ff4;
+}
+.user-name{
+    color:#000040e1;
+}
+.side-bar{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    font-size:20px;
+    background-color:#ffffff;
+    border-top:2px solid navy;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    width:max-content;
+    padding:12px;
+    min-height:100vh;
+}
+.location-text{
+    display:flex;
+    flex-direction:row;
+    gap:12px;
+}
+.location-text a{
+    text-decoration:none;
+    color:navy;
+}
+.home{
+    margin-top:12px;
+}
+.location-text i{
+    display:flex;
+    align-items:center;
+    color:#0066ffb6;
+}
+.now{
+    background:#0073ff;
+    padding:8px;
+    border-radius:5px;
+    transition:0.3s ease color;
+}
+.now a,.now i{
+    color:white;
+}
+.log-out i,.log-out a{
+    color:red;
+}
+h6{
+    text-align:center;
+    font-size:15px;
+    padding:20px;
+    font-family:'inter',sans-serif;
+    color:rgba(0,0,0,0.457);
+}

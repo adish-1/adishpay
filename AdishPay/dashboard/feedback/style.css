@@ -1,0 +1,113 @@
+.major{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:80px;
+    width:90%;
+   margin:auto;
+}
+.content{
+    width:90%;
+    max-width:700px;
+    background-color: white;
+    box-shadow: 0 0 10px grey;
+    display: flex;
+    padding:30px;
+    border-left:10px solid #0077ff;
+    border-radius: 15px;
+}
+h1{
+    color:#007bff;
+    font-family: 'poppins',sans-serif;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    padding-top:20px;
+    width: 90%;
+    padding-left: 20px;;
+}
+.name,.type,.text-box{
+    font-weight: bold;
+    font-size:30px;
+    color:#066eff;
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+.name i,.type i,.text-box i{
+    margin-top:15px;
+}
+input[type="text"]{
+    width:70%;
+    padding:20px;
+    border:1.5px solid #0077ff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #0077ffa0;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: 'inter',sans-serif;
+    outline:none
+}
+select{
+    width:78%;
+    padding:20px;
+    border:1.5px solid #0077ff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #0077ffa0;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: 'inter',sans-serif;
+    outline:none
+}
+textarea{
+    width:70%;
+    max-width:480px;
+    padding:15px;
+    border:1px solid #0077ff;
+    outline:none;
+    border-radius: 10px;
+    max-height:300px;
+}
+.submit-button{
+    display: flex;
+    justify-content: center;
+}
+.submit-button button{
+    width: 90%;
+    max-width:300px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #2457ef;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+.submit-button button:hover{
+    transform:translateY(-5px);
+    background-color: #033981;
+}
+a {
+    margin-top: 20px;
+    width:40%;
+    max-width:200px;
+    margin:auto;
+    padding: 10px 20px;
+    color: #fff;
+    text-align:center;
+    background-color: #fe0000;
+    border-radius: 5px;
+    font: bold 16px 'poppins', sans-serif;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+a:hover {
+    transform: translateY(-5px);
+}

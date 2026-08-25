@@ -1,0 +1,158 @@
+===================================================
+ADISHPAY - PROJECT OVERVIEW
+===================================================
+
+PROJECT NAME: AdishPay
+CURRENT STATE: Version 1.0 (Core Engine & UI Complete - 100% Functional)
+
+PROJECT GOAL:
+A secure, full-stack digital banking and wallet web application designed
+for fast peer-to-peer transactions, secure user authentication, and a
+modern, responsive user interface.
+
+===================================================
+CORE TECHNOLOGIES USED
+===================================================
+
+Frontend:
+- HTML5, CSS3 (Custom styling, Flexbox/Grid layouts)
+- Font Awesome 6 (Icons)
+- Typography: Poppins (Headings/Buttons), Inter (Body Text/Tables)
+
+Backend:
+- PHP (Procedural/Object-Oriented via mysqli)
+
+Database:
+- MySQL (Relational Database)
+
+Security:
+- Password Hashing (password_hash)
+- Session Management ($_SESSION)
+- Prepared SQL Statements (mysqli_prepare)
+
+===================================================
+COMPLETE FILE & FOLDER ARCHITECTURE
+===================================================
+
+AdishPay/
+│
+├── notes.md                 # Dev notes, icon cheat sheets, typography rules
+│
+├── auth/                    # Gateway / Redirection handler
+│   ├── index.php            # Routes users based on login success/failure
+│   └── style.css            # Styling for the auth gateway
+│
+├── dashboard/               # Main Authenticated Application Interface
+│   ├── common.php           # Shared backend logic (session validation, fetching user data)
+│   ├── logout.php           # Destroys sessions and redirects to login
+│   │
+│   ├── css/                 # Global dashboard styles
+│   │   └── common.css       # Shared layout CSS (sidebar, navbar, variables)
+│   │
+│   ├── feedback/            # User Feedback Module
+│   │   ├── index.php        # Feedback form UI
+│   │   └── style.css        # Feedback form styling
+│   │
+│   ├── home/                # Main Dashboard View
+│   │   ├── home.css         # Styling for the home dashboard
+│   │   └── index.php        # Displays balance, recent transactions, action buttons
+│   │
+│   ├── profile/             # User Profile Module
+│   │   ├── index.php        # Displays account metadata, avatar, contact info
+│   │   └── profile.css      # Profile card styling
+│   │
+│   ├── send/                # Money Transfer Module
+│   │   ├── index.php        # The transfer form UI (recipient, amount, PIN)
+│   │   ├── message.css      # Styling for transfer success/error messages
+│   │   ├── message.php      # Feedback UI for the transfer process
+│   │   ├── send.css         # Specific styles for the send form
+│   │   ├── send.php         # Backend PHP logic processing the financial transaction
+│   │   └── style.css        # Additional component styling
+│   │
+│   ├── settings/            # Account Settings Module
+│   │   ├── index.php        # Settings UI (password change, profile updates)
+│   │   └── style.css        # Settings styling
+│   │
+│   ├── statusBlock/         # Reusable Status Component
+│   │   ├── index.html       # UI block for showing account states
+│   │   └── style.css        # Status block styling
+│   │
+│   └── transactions/        # Transaction History Ledger
+│       ├── index.php        # Fetches and lists all user transactions
+│       └── transaction.css  # Styling for the ledger table/list
+│
+├── database/                # Database Configuration
+│   └── db.php               # MySQL connection ($conn) using mysqli
+│
+├── images/                  # Static Assets
+│   ├── favicon.png          # Browser tab icon
+│   └── loginbg.png          # Glassmorphism background graphic
+│
+├── login/                   # Authentication Module
+│   ├── index.html           # Login form UI
+│   ├── login.css            # Login UI styling
+│   └── login.php            # Session creation and password verification
+│
+└── register/                # Onboarding Module
+    ├── index.html           # Registration form UI
+    ├── message.css          # Feedback message styling
+    ├── message.php          # Dynamic feedback UI (Success/Exists/Error)
+    ├── register.css         # Registration form styling
+    └── register.php         # DB insertion, unique checks, ID generation
+
+===================================================
+HOW THE BACKEND MODULES WORK
+===================================================
+
+1. ONBOARDING & VALIDATION (register/)
+- Users input Name, Username, Email, Phone (10 digits), Login Password,
+  and a 4-digit Transaction PIN.
+- register.php checks the database for existing usernames, emails, or
+  phone numbers to prevent duplicates.
+- Passwords and PINs are heavily encrypted using password_hash().
+- Successfully registered users receive an auto-generated 7-digit account
+  number (calculated by adding 1000000 to their auto-incremented database id).
+
+2. AUTHENTICATION & GATEWAY (login/ & auth/)
+- login.php verifies the entered username and password against the
+  database using password_verify().
+- Secure $_SESSION variables are created ($_SESSION['username'],
+  $_SESSION['id']) to maintain user state across the dashboard.
+- auth/index.php handles redirects: catching successful logins and
+  routing them to dashboard/home/index.php, or catching errors and
+  sending users back to the login screen with a warning.
+
+3. THE DASHBOARD ENGINE (dashboard/)
+- common.php acts as the backbone for the dashboard. It verifies the
+  active session — if none exists, the user is kicked back to login.
+  It also fetches the logged-in user's data to populate the UI.
+- send/ (Money Transfer): The core banking feature. send.php handles
+  the deduction from the sender's balance and addition to the receiver's
+  balance using SQL updates, requiring the user's 4-digit PIN for
+  authorization.
+- transactions/ (Ledger): Fetches rows from a transactions table where
+  the current user is the sender or receiver, rendering them chronologically.
+
+===================================================
+DATABASE & SECURITY STANDARDS
+===================================================
+
+DATABASE PROTECTION:
+All interactions with the MySQL database via db.php utilize Prepared
+Statements (mysqli_prepare and mysqli_stmt_bind_param). This architecture
+prevents SQL injection attacks, making the data layer highly secure.
+
+FRONTEND CONSTRAINTS:
+HTML forms utilize strict regex pattern attributes. For example:
+- Phone number input strictly requires 10 digits: pattern="[0-9]{10}"
+- PIN requires exactly 4 digits: pattern="[0-9]{4}"
+
+MODULAR CSS STRATEGY:
+Instead of one massive stylesheet, CSS is compartmentalized.
+- dashboard/css/common.css handles global layout (sidebar, wrappers)
+- Specific files like send.css or profile.css handle local component
+  styling, ensuring clean, maintainable code.
+
+===================================================
+END OF DOCUMENT
+===================================================
